@@ -15,8 +15,8 @@ import com.ea.examples.canvas.cmd.CommandFactory;
 import com.ea.examples.canvas.cmd.CommandLine;
 import com.ea.examples.canvas.cmd.CommandRectangle;
 import com.ea.examples.canvas.core.Canvas;
-import com.ea.examples.exception.CanvasException;
-import com.ea.examples.exception.CommandWrongParamsException;
+import com.ea.examples.canvas.exception.CanvasException;
+import com.ea.examples.canvas.exception.CommandWrongParamsException;
 
 /** 
  * In this class are traced use cases which introduced errors in the test phase.

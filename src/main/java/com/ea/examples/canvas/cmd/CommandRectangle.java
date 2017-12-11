@@ -4,8 +4,8 @@ import static com.ea.examples.canvas.CanvasCostant.CMD_HELP;
 import static com.ea.examples.canvas.CanvasCostant.CMD_RECTANGLE;
 
 import com.ea.examples.canvas.core.Canvas;
-import com.ea.examples.exception.CanvasException;
-import com.ea.examples.exception.CanvasNotYetCreatedException;
+import com.ea.examples.canvas.exception.CanvasException;
+import com.ea.examples.canvas.exception.CanvasNotYetCreatedException;
 
 /**
  * Represents the command for drawing a rectangle in the canvas.

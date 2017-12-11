@@ -1,4 +1,4 @@
-package com.ea.examples.exception;
+package com.ea.examples.canvas.exception;
 
 /**
  * Thrown when cannot build a command starting from the input string inserted by the user.

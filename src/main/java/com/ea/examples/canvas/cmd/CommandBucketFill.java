@@ -4,8 +4,8 @@ import static com.ea.examples.canvas.CanvasCostant.CMD_FILL;
 import static com.ea.examples.canvas.CanvasCostant.CMD_HELP;
 
 import com.ea.examples.canvas.core.Canvas;
-import com.ea.examples.exception.CanvasException;
-import com.ea.examples.exception.CanvasNotYetCreatedException;
+import com.ea.examples.canvas.exception.CanvasException;
+import com.ea.examples.canvas.exception.CanvasNotYetCreatedException;
 
 /**
  * Command used by the Canvas for filling the area around a given coordinate.

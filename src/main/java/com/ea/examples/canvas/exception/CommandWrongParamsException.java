@@ -1,4 +1,4 @@
-package com.ea.examples.exception;
+package com.ea.examples.canvas.exception;
 
 /**
  * Thrown when parameters inserted from command line are not congruent. 

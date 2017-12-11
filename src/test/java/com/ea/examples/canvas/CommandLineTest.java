@@ -11,9 +11,9 @@ import org.junit.Test;
 import com.ea.examples.canvas.CanvasCostant;
 import com.ea.examples.canvas.cmd.CommandLine;
 import com.ea.examples.canvas.core.Canvas;
-import com.ea.examples.exception.CanvasException;
-import com.ea.examples.exception.CommandNotYetImplementedException;
-import com.ea.examples.exception.CommandWrongParamsException;
+import com.ea.examples.canvas.exception.CanvasException;
+import com.ea.examples.canvas.exception.CommandNotYetImplementedException;
+import com.ea.examples.canvas.exception.CommandWrongParamsException;
 
 public class CommandLineTest {
 

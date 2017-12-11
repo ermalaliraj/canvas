@@ -1,4 +1,4 @@
-package com.ea.examples.exception;
+package com.ea.examples.canvas.exception;
 
 
 /**

@@ -3,8 +3,8 @@ package com.ea.examples.canvas.cmd;
 import static com.ea.examples.canvas.CanvasCostant.*;
 
 import com.ea.examples.canvas.core.Canvas;
-import com.ea.examples.exception.CanvasException;
-import com.ea.examples.exception.CanvasNotYetCreatedException;
+import com.ea.examples.canvas.exception.CanvasException;
+import com.ea.examples.canvas.exception.CanvasNotYetCreatedException;
 
 public class CommandClearCanvas extends Command{
 	

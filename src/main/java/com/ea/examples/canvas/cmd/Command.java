@@ -1,7 +1,7 @@
 package com.ea.examples.canvas.cmd;
 
 import com.ea.examples.canvas.core.Canvas;
-import com.ea.examples.exception.CanvasException;
+import com.ea.examples.canvas.exception.CanvasException;
 
 /**
  * Each command must extends this class so must provide at least the name.

@@ -4,7 +4,7 @@ import static com.ea.examples.canvas.CanvasCostant.*;
 
 import com.ea.examples.canvas.App;
 import com.ea.examples.canvas.core.Canvas;
-import com.ea.examples.exception.CanvasException;
+import com.ea.examples.canvas.exception.CanvasException;
 
 /**
  * Help command

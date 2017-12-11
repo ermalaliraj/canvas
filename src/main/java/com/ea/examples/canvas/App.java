@@ -11,8 +11,8 @@ import org.apache.commons.logging.LogFactory;
 import com.ea.examples.canvas.cmd.Command;
 import com.ea.examples.canvas.cmd.CommandFactory;
 import com.ea.examples.canvas.core.Canvas;
-import com.ea.examples.exception.CanvasException;
-import com.ea.examples.exception.QuitGameException;
+import com.ea.examples.canvas.exception.CanvasException;
+import com.ea.examples.canvas.exception.QuitGameException;
 
 /**
  * Main class for starting the application.

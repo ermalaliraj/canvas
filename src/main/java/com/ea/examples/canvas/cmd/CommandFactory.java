@@ -2,9 +2,9 @@ package com.ea.examples.canvas.cmd;
 
 import static com.ea.examples.canvas.CanvasCostant.*;
 
-import com.ea.examples.exception.CanvasException;
-import com.ea.examples.exception.CommandNotFoundException;
-import com.ea.examples.exception.CommandWrongParamsException;
+import com.ea.examples.canvas.exception.CanvasException;
+import com.ea.examples.canvas.exception.CommandNotFoundException;
+import com.ea.examples.canvas.exception.CommandWrongParamsException;
 
 /**
  * Factory for creating Command objects.
