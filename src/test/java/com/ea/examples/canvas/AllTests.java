@@ -1,4 +1,4 @@
-package org.springercanvas;
+package com.ea.examples.canvas;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

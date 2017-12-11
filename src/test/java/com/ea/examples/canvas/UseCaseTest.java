@@ -1,4 +1,4 @@
-package org.springercanvas;
+package com.ea.examples.canvas;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
