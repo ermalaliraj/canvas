@@ -64,34 +64,24 @@ The project has the following structure:
 ```
 canvas
 |-logs
-|   |-canvas.log // log4j output
+|   |-canvas.log 
 |-src
 |  |-main
 |  |  |-java
-|  |      |-com... //java classes				
+|  |      |-com... 				
 |  |  |-resources
-|  |      |-log4j.xml //log4j config file
+|  |      |-log4j.xml 
 |  |-test
 |      |-java
-|          |-com... //TestCase classes				
+|          |-com...				
 |-target
 |   |-lib
-|   |   |-.jar // external jars 
-|   |-canvas.jar // Working build for testing the application
-|-canvas.bat // Windows batch file for lunching the application
-|-pom.xml   // maven config file
+|   |   |-.jar  
+|   |-canvas.jar 
+|-canvas.bat 
+|-pom.xml  
 |-readme.md
 ```
-
-Decided to use Maven for building and packaging the project.
-External libraries used are:
-- Junit, for testing the software
-- Logging libraries, for logging the software.  Log4j logging will be outputed in the file _./logs/canvas.log_ so in this way we leave the console free for user interactions. 
-
-In a real application would be a good idea to trace in the log file all the interactions present in the console so the developer can follow step-by-step the user flow until the application went in Exception.
-This means that each `System.out.println()` will be followed by `logger.debug()`. For keeping the code cleaner I decided to print in the file only user input and eventual errors.
-
-###	Application Design
 
 The project is composed by the following packages:
 - __com.ea.examples.canvas__
@@ -102,6 +92,17 @@ The project is composed by the following packages:
 	Core of the application.
 - __com.ea.examples.exception__
 	All checked exceptions thrown by the application.
+
+
+Decided to use Maven for building and packaging the project.
+External libraries used are:
+- Junit, for testing the software
+- Logging libraries, for logging the software.  Log4j logging will be outputed in the file _./logs/canvas.log_ so in this way we leave the console free for user interactions. 
+
+In a real application would be a good idea to trace in the log file all the interactions present in the console so the developer can follow step-by-step the user flow until the application went in Exception.
+This means that each `System.out.println()` will be followed by `logger.debug()`. For keeping the code cleaner I decided to print in the file only user input and eventual errors.
+
+
 	
 
 ###	A Working build
