@@ -18,6 +18,10 @@ public class CommandRectangle extends Command{
 	private int x2;
 	private int y2;
 	
+	public CommandRectangle() {
+		name = CMD_RECTANGLE;
+	}
+	
 	public CommandRectangle(int x1, int y1, int x2, int y2) {
 		this();
 		this.x1 = x1;
@@ -26,12 +30,17 @@ public class CommandRectangle extends Command{
 		this.y2 = y2;
 	}
 
-	public CommandRectangle() {
-		name = CMD_RECTANGLE;
-	}
-
+	@Override
 	public String getName() {
 		return name;
+	}
+	
+	@Override
+	public Canvas execute(Canvas c) throws CanvasException {
+		if(c == null){
+			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
+		}
+		return c.insertRectangle(this);
 	}
 	
 	public int getX1() {
@@ -69,13 +78,6 @@ public class CommandRectangle extends Command{
 	public String toString() {
 		String rv = "CommandLine[("+x1+", "+y1+"), ("+x2+", "+y2+")]";
 		return rv;
-	}
-	
-	public Canvas execute(Canvas c) throws CanvasException {
-		if(c == null){
-			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
-		}
-		return c.insertRectangle(this);
 	}
 	
 }

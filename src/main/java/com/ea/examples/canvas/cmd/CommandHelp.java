@@ -14,7 +14,8 @@ public class CommandHelp extends Command {
 	public CommandHelp() {
 		name = CMD_HELP;
 	}
-
+	
+	@Override
 	public String getName() {
 		return name;
 	}

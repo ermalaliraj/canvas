@@ -17,6 +17,10 @@ public class CommandLine extends Command{
 	private int y1;
 	private int x2;
 	private int y2;
+
+	public CommandLine() {
+		name = CMD_LINE;
+	}
 	
 	public CommandLine(int x1, int y1, int x2, int y2) {
 		this();
@@ -26,14 +30,19 @@ public class CommandLine extends Command{
 		this.y2 = y2;
 	}
 
-	public CommandLine() {
-		name = CMD_LINE;
-	}
-
+	@Override
 	public String getName() {
 		return name;
 	}
 
+	@Override
+	public Canvas execute(Canvas c) throws CanvasException {
+		if(c == null){
+			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
+		}
+		return c.insertLine(this);
+	}
+	
 	public int getX1() {
 		return x1;
 	}
@@ -71,11 +80,4 @@ public class CommandLine extends Command{
 		return rv;
 	}
 
-	public Canvas execute(Canvas c) throws CanvasException {
-		if(c == null){
-			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
-		}
-		return c.insertLine(this);
-	}
-	
 }

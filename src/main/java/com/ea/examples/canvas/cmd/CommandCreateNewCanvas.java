@@ -13,20 +13,26 @@ public class CommandCreateNewCanvas extends Command{
 	private int weight;
 	private int height;
 	
+	public CommandCreateNewCanvas() {
+		name = CMD_CREATE_CANVAS;
+	}
+	
 	public CommandCreateNewCanvas(int w, int h) {
 		this();
 		weight = w;
 		height = h;
 	}
 	
+	@Override
 	public Canvas execute(Canvas c) throws CanvasException {		
 		return Canvas.getCanvas(weight, height);
 	}
 	
-	public CommandCreateNewCanvas() {
-		name = CMD_CREATE_CANVAS;
+	@Override
+	public String getName() {
+		return name;
 	}
-	
+
 	public int getWeight() {
 		return weight;
 	}
@@ -41,10 +47,6 @@ public class CommandCreateNewCanvas extends Command{
 
 	public void setHeight(int height) {
 		this.height = height;
-	}
-
-	public String getName() {
-		return name;
 	}
 	
 }

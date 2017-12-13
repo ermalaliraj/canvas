@@ -15,6 +15,7 @@ public class CommandQuite extends Command{
 		name = CMD_QUITE;
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}

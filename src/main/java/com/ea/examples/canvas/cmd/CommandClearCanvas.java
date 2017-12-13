@@ -12,10 +12,12 @@ public class CommandClearCanvas extends Command{
 		name = CMD_CLEAR;
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
 
+	@Override
 	public Canvas execute(Canvas c) throws CanvasException {
 		if(c == null){
 			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
