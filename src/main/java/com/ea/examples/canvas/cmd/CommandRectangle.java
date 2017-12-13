@@ -13,6 +13,7 @@ import com.ea.examples.canvas.exception.CanvasNotYetCreatedException;
  */
 public class CommandRectangle extends Command{
 	
+	private Canvas canvas;
 	private int x1;
 	private int y1;
 	private int x2;
@@ -22,12 +23,13 @@ public class CommandRectangle extends Command{
 		name = CMD_RECTANGLE;
 	}
 	
-	public CommandRectangle(int x1, int y1, int x2, int y2) {
+	public CommandRectangle(int x1, int y1, int x2, int y2, Canvas canvas) {
 		this();
 		this.x1 = x1;
 		this.y1 = y1;
 		this.x2 = x2;
 		this.y2 = y2;
+		this.canvas = canvas;
 	}
 
 	@Override
@@ -36,11 +38,16 @@ public class CommandRectangle extends Command{
 	}
 	
 	@Override
-	public Canvas execute(Canvas c) throws CanvasException {
-		if(c == null){
+	public Canvas execute() throws CanvasException {
+		if(canvas == null){
 			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
 		}
-		return c.insertRectangle(this);
+		return canvas.insertRectangle(this);
+	}
+	
+	@Override
+	public Canvas getCanvas() {
+		return canvas;
 	}
 	
 	public int getX1() {

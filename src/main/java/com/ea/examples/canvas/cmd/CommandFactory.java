@@ -2,6 +2,7 @@ package com.ea.examples.canvas.cmd;
 
 import static com.ea.examples.canvas.CanvasCostant.*;
 
+import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.CommandNotFoundException;
 import com.ea.examples.canvas.exception.CommandWrongParamsException;
@@ -23,10 +24,11 @@ public class CommandFactory {
 	 * Q             - Quit the program.
 	 * 
 	 * @param line string to parse as command
+	 * @param canvas 
 	 * @return the command represented by the string
 	 * @throws CanvasException
 	 */
-	public static Command buildCommand(String line) throws CanvasException {
+	public static Command buildCommand(String line, Canvas canvas) throws CanvasException {
 
 		Command cmd = null;
 		line = line.trim();
@@ -58,7 +60,7 @@ public class CommandFactory {
 					int y1 = Integer.parseInt(sp[2]);
 					int x2 = Integer.parseInt(sp[3]);
 					int y2 = Integer.parseInt(sp[4]);
-					cmd = new CommandLine(x1, y1, x2, y2);
+					cmd = new CommandLine(x1, y1, x2, y2, canvas);
 				} catch (Exception e) {
 					throw new CommandWrongParamsException("Coordinates must be numbers! Example: 'L 1 1 9 1'");
 				}
@@ -73,7 +75,7 @@ public class CommandFactory {
 					int y1 = Integer.parseInt(sp[2]);
 					int x2 = Integer.parseInt(sp[3]);
 					int y2 = Integer.parseInt(sp[4]);
-					cmd = new CommandRectangle(x1, y1, x2, y2);
+					cmd = new CommandRectangle(x1, y1, x2, y2, canvas);
 				} catch (Exception e) {
 					throw new CommandWrongParamsException("Coordinates must be numbers! Example: 'R 1 1 9 4'");
 				}
@@ -96,7 +98,7 @@ public class CommandFactory {
 				if(color.length() > 1){
 					throw new CommandWrongParamsException("Wrong Parameters! Color must be a single character. Example: 'B 2 3 c'");
 				}
-				cmd = new CommandBucketFill(x, y, color);
+				cmd = new CommandBucketFill(x, y, color, canvas);
 			}
 		} else if (sp[0].equalsIgnoreCase(CMD_QUITE)) {
 			cmd = new CommandQuite();

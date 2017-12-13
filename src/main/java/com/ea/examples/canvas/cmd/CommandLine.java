@@ -8,11 +8,12 @@ import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.CanvasNotYetCreatedException;
 
 /**
- * Represents the command for drawing a line in the canvas.
- * A line is represented by two points connected together. Line from (x1,y1) to (x2,y2). 
+ * Represents the command for drawing a line in the canvas. 
+ * A line is represented by two points connected together. Line from (x1,y1) to (x2,y2).
  */
-public class CommandLine extends Command{
-	
+public class CommandLine extends Command {
+
+	private Canvas canvas;
 	private int x1;
 	private int y1;
 	private int x2;
@@ -21,13 +22,14 @@ public class CommandLine extends Command{
 	public CommandLine() {
 		name = CMD_LINE;
 	}
-	
-	public CommandLine(int x1, int y1, int x2, int y2) {
+
+	public CommandLine(int x1, int y1, int x2, int y2, Canvas canvas) {
 		this();
 		this.x1 = x1;
 		this.y1 = y1;
 		this.x2 = x2;
 		this.y2 = y2;
+		this.canvas = canvas;
 	}
 
 	@Override
@@ -36,13 +38,18 @@ public class CommandLine extends Command{
 	}
 
 	@Override
-	public Canvas execute(Canvas c) throws CanvasException {
-		if(c == null){
-			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
+	public Canvas execute() throws CanvasException {
+		if (canvas == null) {
+			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '" + CMD_HELP + "' for Help.\n");
 		}
-		return c.insertLine(this);
+		return canvas.insertLine(this);
 	}
-	
+
+	@Override
+	public Canvas getCanvas() {
+		return canvas;
+	}
+
 	public int getX1() {
 		return x1;
 	}
@@ -74,9 +81,9 @@ public class CommandLine extends Command{
 	public void setY2(int y2) {
 		this.y2 = y2;
 	}
-	
+
 	public String toString() {
-		String rv = "CommandLine[("+x1+", "+y1+"), ("+x2+", "+y2+")]";
+		String rv = "CommandLine[(" + x1 + ", " + y1 + "), (" + x2 + ", " + y2 + ")]";
 		return rv;
 	}
 

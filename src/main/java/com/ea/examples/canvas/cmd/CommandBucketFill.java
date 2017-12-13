@@ -13,6 +13,7 @@ import com.ea.examples.canvas.exception.CanvasNotYetCreatedException;
  */
 public class CommandBucketFill extends Command{
 
+	private Canvas canvas;
 	private int x;
 	private int y;
 	private String color;
@@ -21,11 +22,12 @@ public class CommandBucketFill extends Command{
 		name = CMD_FILL;
 	}
 	
-	public CommandBucketFill(int x, int y, String color) {
+	public CommandBucketFill(int x, int y, String color, Canvas canvas) {
 		this();
 		this.x = x;
 		this.y = y;
 		this.color = color;
+		this.canvas = canvas;
 	}
 
 	@Override
@@ -34,11 +36,16 @@ public class CommandBucketFill extends Command{
 	}
 	
 	@Override
-	public Canvas execute(Canvas c) throws CanvasException {
-		if(c == null){
+	public Canvas execute() throws CanvasException {
+		if(canvas == null){
 			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
 		}
-		return c.fillBucket(this);
+		return canvas.fillBucket(this);
+	}
+	
+	@Override
+	public Canvas getCanvas() {
+		return canvas;
 	}
 
 	public int getX() {

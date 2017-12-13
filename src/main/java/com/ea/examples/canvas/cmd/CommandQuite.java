@@ -10,9 +10,16 @@ import com.ea.examples.canvas.exception.QuitGameException;
  * Command used for quite the canvas.
  */
 public class CommandQuite extends Command{
-		
+	
+	private Canvas canvas;
+	
 	public CommandQuite() {
 		name = CMD_QUITE;
+	}
+	
+	public CommandQuite(Canvas canvas) {
+		this();
+		this.canvas = canvas;
 	}
 
 	@Override
@@ -21,8 +28,13 @@ public class CommandQuite extends Command{
 	}
 
 	@Override
-	public Canvas execute(Canvas c) throws CanvasException {
+	public Canvas execute() throws CanvasException {
 		throw new QuitGameException("Quiting the game!");
+	}
+	
+	@Override
+	public Canvas getCanvas() {
+		return canvas;
 	}
 
 }
