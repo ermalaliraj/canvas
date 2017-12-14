@@ -26,8 +26,7 @@ public class CommandCreateNewCanvas extends Command{
 	
 	@Override
 	public Canvas execute() throws CanvasException {
-		Canvas.resetInstance();
-		canvas = Canvas.getCanvas(weight, height);
+		canvas = new Canvas(weight, height);
 		return canvas;
 	}
 	

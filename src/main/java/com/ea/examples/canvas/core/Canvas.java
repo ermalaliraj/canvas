@@ -11,45 +11,38 @@ import com.ea.examples.canvas.exception.CommandWrongParamsException;
 public class Canvas {
 
 	public boolean loggOn = true;
-	private static Canvas canvas = null;
-
 	private int width;
 	private int height;
 	private String matrix[][];
-	
-	public static Canvas getCanvas() {
-		return getCanvas(0, 0);
-	}
-
-	public static Canvas getCanvas(int width, int height) {
-		if (canvas == null) {
-			canvas = new Canvas(width, height);
-		}
-		return canvas;
-	}
-	
-	public static void resetInstance() {
-		canvas = null;
-	}
-
 
 	/**
 	 * Create the Canvas (W)eight x (H)eight
 	 */
-	private Canvas(int w, int h) {
+	public Canvas(int w, int h) {
 		width = w;
 		height = h;
 		matrix = new String[height][width];
+		resetMatrix();
+	}
 
+	public Canvas clearCanvas() {
+		resetMatrix();
+		return this;
+	}
+	
+	private void resetMatrix() {
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				matrix[i][j] = " ";
 			}
 		}
 	}
-
+	
 	/**
-	 * Print the canvas state surrounded by the borders: -------------- | matrix[][] | --------------
+	 * Print the canvas state surrounded by the borders: 
+	 * -------------- 
+	 * | matrix[][] | 
+	 * --------------
 	 */
 	public void printCanvas() {
 		// first row ----------
@@ -130,9 +123,8 @@ public class Canvas {
 	 * 1. Validate the input </br>
 	 * 2. Insert the Rectangle </br>
 	 * 
-	 * @param cmd
-	 *            Command containing x1, y1, x2, y2 for inserting a rectangle, whose upper left corner is (x1,y1) and lower right
-	 *            corner is (x2,y2)
+	 * @param cmd Command containing x1, y1, x2, y2 for inserting a rectangle, whose upper left corner is (x1,y1) 
+	 * 			  and lower right corner is (x2,y2)
 	 * @throws CanvasException
 	 */
 	public Canvas insertRectangle(CommandRectangle cmd) throws CanvasException {
@@ -217,11 +209,6 @@ public class Canvas {
 			System.out.println("FillBucket - Wrong coordinates: (" + cmd.getX() + ", " + cmd.getY() + ")");
 			throw new CommandWrongParamsException("The coordinates must be inside the canvas: (x > 0 && x <= " + width + ") && (y > 0 && y <= " + height + ")");
 		}
-	}
-
-	public Canvas clearCanvas() {
-		canvas = null;
-		return null;
 	}
 
 	public int getWidth() {

@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 
-import com.ea.examples.canvas.cmd.Command;
 import com.ea.examples.canvas.cmd.CommandFactory;
 import com.ea.examples.canvas.cmd.CommandFactoryImpl;
 import com.ea.examples.canvas.core.Canvas;
@@ -21,7 +20,7 @@ public abstract class CommandTest {
 	@Before
 	public void setUp() {
 		commandFactory = new CommandFactoryImpl();
-		canvas = Canvas.getCanvas(width, height);
+		canvas = new Canvas(width, height);
 	}
 
 	@After

@@ -37,7 +37,7 @@ public class CommandBucketFillTest extends CommandTest {
 	 */
 	@Before
 	public void setUp(){
-		canvas = Canvas.getCanvas(width, height);
+		canvas = new Canvas(width, height);
 		
 		try {
 			CommandRectangle cmd = new CommandRectangle(1, 1, 8, height, canvas);
