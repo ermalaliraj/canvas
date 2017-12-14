@@ -10,10 +10,10 @@ import org.junit.Test;
 
 import com.ea.examples.canvas.cmd.Command;
 import com.ea.examples.canvas.cmd.CommandBucketFill;
+import com.ea.examples.canvas.cmd.CommandFactory;
 import com.ea.examples.canvas.cmd.CommandFactoryImpl;
 import com.ea.examples.canvas.cmd.CommandLine;
 import com.ea.examples.canvas.cmd.CommandRectangle;
-import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.CommandWrongParamsException;
 
@@ -24,6 +24,7 @@ public class UseCaseTest extends CommandTest {
 
 	public static final transient Log logger = LogFactory.getLog(UseCaseTest.class);
 	public final static String COLOR = "o";
+	
 
 	@After
 	public void drillDown() {
@@ -33,7 +34,7 @@ public class UseCaseTest extends CommandTest {
 	@Test
 	public void testHP_ParseBucketFillCommand() throws CanvasException {
 		String cmdLine = "B 2 3 a";
-		Command cmd = CommandFactoryImpl.buildCommand(cmdLine, canvas);
+		Command cmd = commandFactory.buildCommand(cmdLine, canvas);
 
 		assertNotNull(cmd);
 		assertTrue(cmd instanceof CommandBucketFill);
@@ -42,7 +43,7 @@ public class UseCaseTest extends CommandTest {
 	@Test(expected = CommandWrongParamsException.class)
 	public void testEX_ParseBucketFilldWrongColor() throws CanvasException {
 		String cmdLine = "B 2 3 add";
-		CommandFactoryImpl.buildCommand(cmdLine, canvas);
+		commandFactory.buildCommand(cmdLine, canvas);
 	}
 
 	@Test
