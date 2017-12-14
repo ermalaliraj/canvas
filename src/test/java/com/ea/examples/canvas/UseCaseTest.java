@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.ea.examples.canvas.cmd.Command;
 import com.ea.examples.canvas.cmd.CommandBucketFill;
-import com.ea.examples.canvas.cmd.CommandFactory;
+import com.ea.examples.canvas.cmd.CommandFactoryImpl;
 import com.ea.examples.canvas.cmd.CommandLine;
 import com.ea.examples.canvas.cmd.CommandRectangle;
 import com.ea.examples.canvas.core.Canvas;
@@ -33,7 +33,7 @@ public class UseCaseTest extends CommandTest {
 	@Test
 	public void testHP_ParseBucketFillCommand() throws CanvasException {
 		String cmdLine = "B 2 3 a";
-		Command cmd = CommandFactory.buildCommand(cmdLine, canvas);
+		Command cmd = CommandFactoryImpl.buildCommand(cmdLine, canvas);
 
 		assertNotNull(cmd);
 		assertTrue(cmd instanceof CommandBucketFill);
@@ -42,7 +42,7 @@ public class UseCaseTest extends CommandTest {
 	@Test(expected = CommandWrongParamsException.class)
 	public void testEX_ParseBucketFilldWrongColor() throws CanvasException {
 		String cmdLine = "B 2 3 add";
-		CommandFactory.buildCommand(cmdLine, canvas);
+		CommandFactoryImpl.buildCommand(cmdLine, canvas);
 	}
 
 	@Test

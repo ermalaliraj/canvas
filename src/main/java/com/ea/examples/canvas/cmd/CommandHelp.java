@@ -28,7 +28,7 @@ public class CommandHelp extends Command {
 	@Override
 	public Canvas execute() throws CanvasException {
 		printHelp();
-		return canvas;
+		return Canvas.getCanvas();
 	}
 	
 	@Override

@@ -16,6 +16,10 @@ public class Canvas {
 	private int width;
 	private int height;
 	private String matrix[][];
+	
+	public static Canvas getCanvas() {
+		return getCanvas(0, 0);
+	}
 
 	public static Canvas getCanvas(int width, int height) {
 		if (canvas == null) {
@@ -23,6 +27,11 @@ public class Canvas {
 		}
 		return canvas;
 	}
+	
+	public static void resetInstance() {
+		canvas = null;
+	}
+
 
 	/**
 	 * Create the Canvas (W)eight x (H)eight
