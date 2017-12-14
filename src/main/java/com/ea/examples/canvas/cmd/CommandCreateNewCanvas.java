@@ -25,14 +25,13 @@ public class CommandCreateNewCanvas extends Command{
 	}
 	
 	@Override
-	public Canvas execute() throws CanvasException {
-		canvas = new Canvas(weight, height);
-		return canvas;
+	public String getName() {
+		return name;
 	}
 	
 	@Override
-	public String getName() {
-		return name;
+	public void execute() throws CanvasException {
+		canvas = new Canvas(weight, height);		
 	}
 	
 	@Override

@@ -36,11 +36,11 @@ public class CommandBucketFill extends Command{
 	}
 	
 	@Override
-	public Canvas execute() throws CanvasException {
+	public void execute() throws CanvasException {
 		if(canvas == null){
 			throw new CanvasNotYetCreatedException("First create a new Canvas using 'C' command. Insert '"+CMD_HELP+"' for Help.\n");
 		}
-		return canvas.fillBucket(this);
+		canvas.fillBucket(this);
 	}
 	
 	@Override

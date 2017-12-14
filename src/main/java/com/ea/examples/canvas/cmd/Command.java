@@ -12,7 +12,7 @@ public abstract class Command {
 	
 	public abstract String getName();
 
-	public abstract Canvas execute() throws CanvasException;
+	public abstract void execute() throws CanvasException;
 	
 	public abstract Canvas getCanvas();
 	

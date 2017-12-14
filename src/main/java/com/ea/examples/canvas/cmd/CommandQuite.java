@@ -28,7 +28,7 @@ public class CommandQuite extends Command{
 	}
 
 	@Override
-	public Canvas execute() throws CanvasException {
+	public void execute() throws CanvasException {
 		throw new QuitGameException("Quiting the game!");
 	}
 	
