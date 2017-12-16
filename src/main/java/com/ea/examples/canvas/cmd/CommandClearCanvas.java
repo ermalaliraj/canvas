@@ -10,7 +10,7 @@ public class CommandClearCanvas extends Command {
 	
 	private Canvas canvas;
 	
-	public CommandClearCanvas() {
+	private CommandClearCanvas() {
 		name = CMD_CLEAR;
 	}
 	public CommandClearCanvas(Canvas canvas) {

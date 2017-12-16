@@ -37,14 +37,14 @@ public class App {
 
 	private void run() {
 		boolean isExit = false;
-		Canvas canvas = null;
+		Canvas canvas = new Canvas(0, 0);
 		do {
 			try {
 				System.out.print("Insert command: ");
 				String line = sc.nextLine();
 				command = commandFactory.buildCommand(line, canvas);
 				command.execute();
-				canvas = command.getCanvas();
+				canvas = command.getCanvas(); 
 				canvas.printCanvas();
 			} catch (QuitGameException e) {
 				isExit = true;

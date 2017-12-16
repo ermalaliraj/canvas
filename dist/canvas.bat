@@ -1,1 +1,1 @@
-java -jar .\target\canvas.jar
+java -jar canvas.jar

@@ -19,7 +19,7 @@ public class CommandLine extends Command {
 	private int x2;
 	private int y2;
 
-	public CommandLine() {
+	private CommandLine() {
 		name = CMD_LINE;
 	}
 

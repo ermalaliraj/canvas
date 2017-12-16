@@ -93,11 +93,11 @@ public class CommandFactoryImpl implements CommandFactory {
 				cmd = new CommandBucketFill(x, y, color, canvas);
 			}
 		} else if (sp[0].equalsIgnoreCase(CMD_QUITE)) {
-			cmd = new CommandQuite();
+			cmd = new CommandQuite(canvas);
 		} else if (sp[0].equalsIgnoreCase(CMD_HELP)) {
-			cmd = new CommandHelp();
+			cmd = new CommandHelp(canvas);
 		} else if (sp[0].equalsIgnoreCase(CMD_CLEAR)) {
-			cmd = new CommandClearCanvas();
+			cmd = new CommandClearCanvas(canvas);
 		} else {
 			throw new CommandNotFoundException("Command not found! The line must start with letter: 'C', 'L', 'R, 'B' or 'Q' for exit.");
 		}

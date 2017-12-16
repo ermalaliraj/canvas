@@ -18,7 +18,7 @@ public class CommandBucketFill extends Command{
 	private int y;
 	private String color;
 	
-	public CommandBucketFill() {
+	private CommandBucketFill() {
 		name = CMD_FILL;
 	}
 	

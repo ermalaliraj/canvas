@@ -13,7 +13,7 @@ public class CommandQuite extends Command{
 	
 	private Canvas canvas;
 	
-	public CommandQuite() {
+	private CommandQuite() {
 		name = CMD_QUITE;
 	}
 	

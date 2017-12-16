@@ -14,7 +14,7 @@ public class CommandCreateNewCanvas extends Command{
 	private int height;
 	private Canvas canvas;
 	
-	public CommandCreateNewCanvas() {
+	private CommandCreateNewCanvas() {
 		name = CMD_CREATE_CANVAS;
 	}
 	
