@@ -61,112 +61,81 @@ enter command: B 10 3 o
 # Solution
 
 ### Project Structure
-The project has the following structure:
+For the implementation of the drawing program we need the following components:
+- A parser for parsing the input typed by the user into commands and for this we use CommandFactory.
+- A new Command class for each command we want to add to the drawing program.
+- A class which define the state of the program and for this we use Canvas.
+
+If we try to model the implementation using the command pattern described by GoF we have: 
+- App.java as invoker.
+- package cmd contains all concrete commands.
+- Canvas.java the receiver which defines what to do on each command receiver. 
+
+Example of "create new canvas" implementation:
 
 ![UML Model](./doc/canvas_uml.jpg)
 
+If we try to read the UML the sequence of instruction is :
+1. User types in the console "C 10 5"
+2. The concrete command CommandCreateNewCanvas is created. Canvas passed as parameter can be null.
+3. CommandCreateNewCanvas.execute() creates new Canvas(widht, heigh);
+4. Get the updated state of the object Canvas.
+5. Print the new state.
 
-```
-canvas
-|-logs
-|   |-canvas.log 
-|-src
-|  |-main
-|  |  |-java
-|  |      |-com... 				
-|  |  |-resources
-|  |      |-log4j.xml 
-|  |-test
-|      |-java
-|          |-com...				
-|-target
-|   |-lib
-|   |   |-.jar  
-|   |-canvas.jar 
-|-canvas.bat 
-|-pom.xml  
-|-readme.md
-```
 
 The project is composed by the following packages:
 - __com.ea.examples.canvas__
-    General classes. Here is the entry point of the application.
+    Entry point of the application.
 - __com.ea.examples.canvas.cmd__
-	Commands package. Here can be found the commands supported by the application. The string inserted by the user during the interaction is converted in one of this commands. For creating a command we make use of a factory.
+	All commands supported by the application.
 - __com.ea.examples.canvas.core__
-	Core of the application.
+	Core of the application, Canvas in this case.
 - __com.ea.examples.exception__
 	All checked exceptions thrown by the application.
-
-
-Decided to use Maven for building and packaging the project.
-External libraries used are:
-- Junit, for testing the software
-- Logging libraries, for logging the software.  Log4j logging will be outputed in the file _./logs/canvas.log_ so in this way we leave the console free for user interactions. 
-
-In a real application would be a good idea to trace in the log file all the interactions present in the console so the developer can follow step-by-step the user flow until the application went in Exception.
-This means that each `System.out.println()` will be followed by `logger.debug()`. For keeping the code cleaner I decided to print in the file only user input and eventual errors.
-
-
 	
 
-###	A Working build
-
-A working build is present in the path ./target:
--	lib -> folder with external jars packaged by maven, needed for application to be run.
--	canvas.jar -> application packaged as a jar file.
-
-Use ./canvas.bat for an easy and fast way to test the application. The .bat calls `java canvas.jar`
-
-###	Tradeoffs/Decisions/Reflections
-Actually we loop in the main() entrypoint, reading input strings which represent commands, until the user decide to insert Quit command for interrumpting the flow.
-	For this simple specific I decided to go for java Scanner.
-	A consideration I did was regards "org.apache.commons.cli" as a Command Line framework. For the actual specific apache.cli is "too much" and do not solve our problem.
-	Where would be useful "org.apache.commons.cli" ? 
-	In case we decide that the application can handle only one Command (no do/while loop) by time.
-	In that case, for each desired command, we have to call the application like: 
-		java canvas.jar C 20 4
-		java canvas.jar L 1 1 8 1
-		java canvas.jar R 1 1 8 4
-	This is the case where "apache.cli" perfectly matches, but in this case our application must be changed in two different point:
-		1. Create a batch for user interactions and call the canvas.jar depending on the user input. For each Command a new call to canvas.jar.
-		2. Make the Canvas preserving the state from one call to another and make the access Singleton (only one instance of the Canvas shared between different users)
-	Not a winning solution, but we can discuss if this an explicit client request.
-	Other reflection is if the client need only one session to be present (single Canvas shared between different users) or for each user create a new Canvas(actual solution)?
-	
-�	Bucket filler "algorithm"
-	- The approach used for filling the area is as follows:
-		1. Call the method which fill only one pixel (if free)
-		2. Call recursively same method for the 4 adjacent pixels: x+1, y; x, y+1; x-1, y; x, y-1;
-		3. Method exit when finds borders or already filled pixel.
+#	Considerations
+###	Bucket filler "algorithm"
+The approach used for filling the area is as follows:
+1. Call the method which fill only one pixel (if free)
+2. Call recursively same method for the 4 adjacent pixels: x+1, y; x, y+1; x-1, y; x, y-1.
+3. Method exit when finds borders or already a filled pixel.
 		
-	- Complexity of the algorithm is: NumberOfFreePixels x 4.
-	So if we have an empty Canvas[20x5] the filler will make 400 calls, so 400 access to the matrix[][].
-	If in the canvas are present Lines and Rectangles, the number of free pixels will be fewer, so the calls will be < 400.
-	Number of updates to the matrix[][] is equal to the colored pixel.
+__Complexity of the algorithm__
+The complexity of the algorithm is NumberOfFreePixels x 4.
+If we have an empty Canvas[20x5] the filler will make 400 calls, so 400 access to the matrix[][].
+Number of updates to the matrix[][] is equal to the number of pixels to be colored.
 	
 
-4.	Tests
+###	Tests
 
-Used junit for testing the functionalities of the canvas.
-"TDD" approach was followed for implementing the solution.
-This means that unit tests were not created at the end, but during all the development phase.
-For each functionality is present a different file:
-�	CommandBucketFillTest.java -> Test cases for BucketFiller command.
-�	CommandLineTest.java -> Test cases for drawing a line command.
-�	CommandRectangleTest.java -> Test cases for drawing a rectangle command.
+Choosed TDD approach for Canvas implementation. This means the TestCases had been created before or during the development phase
+and not in the end.
+ 
+For each functionality is present a different test file:
+- CommandBucketFillTest.java -> Test cases for BucketFiller command.
+- CommandLineTest.java -> Test cases for drawing a line command.
+- CommandRectangleTest.java -> Test cases for drawing a rectangle command.
+- UseCaseTest.java -> Test cases covering bugs discovered in ta second moment.
 
 Unit tests are divided in three categories
-	� Happy Paths - testHP_nomeTest wich are the tests that has to succeed. Usually we assert at the end of the method what we are expecting
-	� Case Limit  - testCL_nomeTest wich are the tests that test a Limit Case. Example, x, y are 0 ore same as width/height. 
+	-  Happy Paths - testHP_nomeTest wich are the tests that has to succeed. Usually we assert at the end of the method what we are expecting
+	- Case Limit  - testCL_nomeTest wich are the tests that test a Limit Case. Example, x, y are 0 ore same as width/height. 
 					Usually we assert what we are expecting or pay attention of eventual exceptions
-	� Exceptions  - testEX_nomeTest wich are the tests that test exception cases. In this cases we define the exception we are waiting to be thrown.
+	- Exceptions  - testEX_nomeTest wich are the tests that test exception cases. In this cases we define the exception we are waiting to be thrown.
 
 In case of new enhancements or different implementation for the Canvas.java the unit tests will acts as Integration Tests. 
 Before committing new changes to repository everything must be "green" :) 
 
 
-5.	Timeline
+###	A Working build
+
+A working build is present in the path ./dist:
+- canvas.jar -> application packaged as a jar file.
+- canvas.bat -> easy and fast way to test the application.
+
+
+###	Timeline
 
 Total time spend for the release 13 hours subdivided as follows:
 	9 Hours development + Unit tests  (3 days from 3 hours each)
