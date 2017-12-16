@@ -40,7 +40,7 @@ public class CommandHelp extends Command {
 		System.out.println("************ OPTIONS *************");
 		System.out.println("C w h - Create a new canvas of width w and height h.");
 		System.out.println("L x1 y1 x2 y2 - Create a new line from (x1,y1) to (x2,y2).");
-		System.out.println("R x1 y1 x2 y2 - Create a new rectangle, whose upper left corner is (x1,y1) 	and lower right corner is (x2,y2).");
+		System.out.println("R x1 y1 x2 y2 - Create a new rectangle, whose upper left corner is (x1,y1) and lower right corner is (x2,y2).");
 		System.out.println("B x y c - Fill the area connected to (x,y) with 'color' c.");
 		System.out.println("H - Help.");
 		System.out.println("Q - Quit the program.");
