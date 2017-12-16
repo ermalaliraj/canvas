@@ -60,32 +60,32 @@ enter command: B 10 3 o
 
 ### Project Structure
 For the implementation of the drawing program we need the following components:
-- A parser for parsing the input typed by the user into commands and for this we use CommandFactory.
-- A new Command class for each command we want to add to the drawing program.
-- A class which define the state of the program and for this we use Canvas.
+- A parser for parsing the input typed by the user into commands and for this we use `CommandFactory`.
+- A new `Command` class for each command we want to add to the drawing program.
+- A class which define the state of the program and for this we use `Canvas`.
 
-If we try to model the implementation using the command pattern described by GoF we have: 
-- App.java as invoker.
-- package cmd contains all concrete commands.
-- Canvas.java the receiver which defines what to do on each command receiver. 
+If we try to model the implementation using the command pattern described by _GoF_ we have: 
+- `App.java` as _invoker_.
+- package `cmd` contains all _concrete commands_.
+- `Canvas.java` the _receiver_ which defines what to do on each command receiver. 
 
 Example of "create new canvas" implementation:
 
 ![UML Model](./doc/canvas_uml.jpg)
 
 If we try to read the UML the sequence of instruction is :
-1. User types in the console "C 10 5"
-2. The concrete command CommandCreateNewCanvas is created. Canvas passed as parameter can be null.
-3. CommandCreateNewCanvas.execute() creates new Canvas(widht, heigh);
-4. Get the updated state of the object Canvas.
+1. User types in the console `C 10 5` (ex)
+2. The concrete command `CommandCreateNewCanvas` is created. `Canvas` passed as parameter can be `null`.
+3. `CommandCreateNewCanvas.execute()` creates `new Canvas(widht, heigh)`;
+4. Get the updated state of the object `Canvas`.
 5. Print the new state.
 
 
 The project is composed by the following packages:
-- __com.ea.examples.canvas__  Entry point of the application.
-- __com.ea.examples.canvas.cmd__ All commands supported by the application.
-- __com.ea.examples.canvas.core__ Core of the application, Canvas in this case.
-- __com.ea.examples.exception__ All checked exceptions thrown by the application.
+- `com.ea.examples.canvas`  Entry point of the application.
+- `com.ea.examples.canvas.cmd` All commands supported by the application.
+- `com.ea.examples.canvas.core` Core of the application, Canvas in this case.
+- `com.ea.examples.exception` All checked exceptions thrown by the application.
 
 ---
 ###	Bucket filler "algorithm"
