@@ -135,7 +135,7 @@ Before committing new changes to repository everything must be "green" :)
 `Log4j` logging will be outputed in the file `./logs/canvas.log` so in this way we leave the console free for interactions. <br/> 
 In a real application would be a better idea to trace in the _log file_ all (almost) interactions present in the console in order that the developer can follow step-by-step the user's flow until an eventual `Exception` may occur.<br/>
 For keeping the code cleaner will print in the log file only user input and eventual errors.<br/>
-Tracing the flow as describer before means each `System.out.println()` will followed a `logger.debug()`.
+Tracing the flow as describer before means each `System.out.println()` will follows a `logger.debug()`.
 
 ###	A Working build
 Using maven plugin `maven-jar-plugin` we can package our application in `canvas.jar`.
