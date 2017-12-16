@@ -117,7 +117,7 @@ Unit tests are divided in three categories:
 In case of new enhancements or different implementation for the Canvas.java the unit tests will act as Integration Tests. 
 Before committing new changes to repository everything must be "green" :) 
 
-###	A Working build
+##	A Working build
 
 A working build is present in the path `./dist`:
 - `canvas.jar` -> application packaged as a jar file.
