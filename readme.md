@@ -133,6 +133,11 @@ In case of new enhancements or different implementation for the Canvas.java the 
 Before committing new changes to repository everything must be "green" :) 
 
 ###	A Working build
+Using maven plugin `maven-jar-plugin` we can package our application in `canvas.jar`.
+If you want to create a new jar use:
+```
+mvn clean install
+```
 
 A working build is present in the path `./dist`:
 - `canvas.jar` -> application packaged as a jar file.
