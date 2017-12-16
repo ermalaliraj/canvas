@@ -95,9 +95,9 @@ The approach used for filling the area, in `CommandBucketFill`, is as follows:
 3. Method exits when finds borders or already a filled pixel.
 		
 __Complexity of the algorithm__  <br/>
-The complexity of the algorithm is _NumberOfFreePixels_ x 4.<br/>
-If we have an empty _Canvas[20x5]_ the filler will make 400 calls, so 400 access to the _matrix[][]_.<br/>
-Number of updates to the _matrix[][]_ is equal to the number of pixels to be colored.
+The complexity of the algorithm is _NumberOfFreePixels x 4_.<br/>
+If we have an empty _Canvas[20x5]_, the filler will make 400 calls, so 400 __accesses__ to the _matrix[][]_.<br/>
+Number of __updates__ to the _matrix[][]_ is equal to the number of pixels to be colored.
 	
 ###	Tests
 
@@ -119,14 +119,10 @@ Before committing new changes to repository everything must be "green" :)
 
 ###	A Working build
 
-A working build is present in the path ./dist:
-- canvas.jar -> application packaged as a jar file.
-- canvas.bat -> easy and fast way to test the application.
-
-
-###	Timeline
-
-Total time spend for the release 13 hours subdivided as follows:
-	9 Hours development + Unit tests  (3 days from 3 hours each)
-	2 Hours testing User Interface canvas.jar  / Bug fixing
-	2 Hours documentation
+A working build is present in the path `./dist`:
+- `canvas.jar` -> application packaged as a jar file.
+- `canvas.bat` -> easy and fast way to test the application. 
+```
+cd /yourpath/canvas/dist
+canvas.bat
+```
