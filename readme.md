@@ -74,7 +74,7 @@ enter command: B 10 3 o
 # Solution
 
 ### Project Structure
-For the implementation of the drawing program we need the following components:
+For the implementation of the _drawing program_ we need the following _components_:
 - A parser for parsing the input typed by the user into commands and for this we use `CommandFactory`.
 - A new `Command` class for each command we want to add to the drawing program.
 - A class which define the state of the program and for this we use `Canvas`.
@@ -88,13 +88,12 @@ Example of _"create new canvas"_ implementation:
 
 ![UML Model](./doc/canvas_uml.jpg)
 
-If we try to read the UML the sequence of instruction is :
+If we try to read the UML diagram:
 1. User types in the console `C 10 5` (ex)
-2. The concrete command `CommandCreateNewCanvas` is created. `Canvas` passed as parameter can be `null`.
+2. The concrete command `CommandCreateNewCanvas` is created.
 3. `CommandCreateNewCanvas.execute()` creates `new Canvas(widht, heigh)`;
 4. Get the updated state of the object `Canvas`.
 5. Print the new state.
-
 
 The project is composed by the following packages:
 - `com.ea.examples.canvas`  Entry point of the application.
@@ -131,6 +130,12 @@ Unit tests are divided in three categories:
 
 In case of new enhancements or different implementation for the Canvas.java the unit tests will act as Integration Tests. 
 Before committing new changes to repository everything must be "green" :) 
+
+### Logging
+`Log4j` logging will be outputed in the file `./logs/canvas.log` so in this way we leave the console free for interactions. <br/> 
+In a real application would be a better idea to trace in the _log file_ all (almost) interactions present in the console in order that the developer can follow step-by-step the user's flow until an eventual `Exception` may occur.<br/>
+For keeping the code cleaner will print in the log file only user input and eventual errors.<br/>
+Tracing the flow as describer before means each `System.out.println()` will followed a `logger.debug()`.
 
 ###	A Working build
 Using maven plugin `maven-jar-plugin` we can package our application in `canvas.jar`.
