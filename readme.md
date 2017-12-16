@@ -1,4 +1,17 @@
-This is the a simple project I had to complete for an interview.
+# Coding Challenge
+Below is a coding problem that we would like you to solve. Please read through the description carefully and implement a solution for it. 
+We don't want you to over­engineer the solution but be prepared to extend the functionality in the next step of the interview process. Finally, we ask you to submit a solution that you'd be happy to go live with and works "out of the box”.
+
+Things We Value:
+- Working software!
+- Tests.
+- A working build.
+- Small checkins with good comments.
+- A simple readme (maybe talk about tradeoffs and design decisions).
+- Simple code (but not necessarily easy!)
+- The fewer libraries the better, we want to see your code. But if you want to use a library then say why in your readme.
+- We like functional constructs but also value good domain names and modelling.
+- Evidence you have thought about errors (either in code or the readme).
 
 # The Challenge
 You're given the task of writing a simple console version of a drawing program. In a nutshell, the program should work as follows:
@@ -55,6 +68,8 @@ enter command: B 10 3 o
 |     xoooooooooooooo|
 ----------------------
 ```
+---
+---
 
 # Solution
 
@@ -117,7 +132,7 @@ Unit tests are divided in three categories:
 In case of new enhancements or different implementation for the Canvas.java the unit tests will act as Integration Tests. 
 Before committing new changes to repository everything must be "green" :) 
 
-##	A Working build
+###	A Working build
 
 A working build is present in the path `./dist`:
 - `canvas.jar` -> application packaged as a jar file.
