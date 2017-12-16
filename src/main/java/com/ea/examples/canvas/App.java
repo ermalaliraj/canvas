@@ -9,8 +9,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.ea.examples.canvas.cmd.Command;
-import com.ea.examples.canvas.cmd.CommandFactory;
-import com.ea.examples.canvas.cmd.CommandFactoryImpl;
+import com.ea.examples.canvas.cmd.factory.CommandFactory;
+import com.ea.examples.canvas.cmd.factory.CommandFactoryImpl;
 import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.QuitGameException;

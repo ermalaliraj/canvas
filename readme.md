@@ -63,7 +63,7 @@ enter command: B 10 3 o
 ### Project Structure
 The project has the following structure:
 
-![UML Model](./doc/uml4.jpg)
+![UML Model](./doc/canvas_uml.jpg)
 
 
 ```

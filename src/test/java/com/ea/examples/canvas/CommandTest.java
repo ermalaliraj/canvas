@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 
-import com.ea.examples.canvas.cmd.CommandFactory;
-import com.ea.examples.canvas.cmd.CommandFactoryImpl;
+import com.ea.examples.canvas.cmd.factory.CommandFactory;
+import com.ea.examples.canvas.cmd.factory.CommandFactoryImpl;
 import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;
 

@@ -1,7 +1,15 @@
-package com.ea.examples.canvas.cmd;
+package com.ea.examples.canvas.cmd.factory;
 
 import static com.ea.examples.canvas.CanvasCostant.*;
 
+import com.ea.examples.canvas.cmd.Command;
+import com.ea.examples.canvas.cmd.CommandBucketFill;
+import com.ea.examples.canvas.cmd.CommandClearCanvas;
+import com.ea.examples.canvas.cmd.CommandCreateNewCanvas;
+import com.ea.examples.canvas.cmd.CommandHelp;
+import com.ea.examples.canvas.cmd.CommandLine;
+import com.ea.examples.canvas.cmd.CommandQuite;
+import com.ea.examples.canvas.cmd.CommandRectangle;
 import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.CommandNotFoundException;

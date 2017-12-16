@@ -1,5 +1,6 @@
-package com.ea.examples.canvas.cmd;
+package com.ea.examples.canvas.cmd.factory;
 
+import com.ea.examples.canvas.cmd.Command;
 import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;
 

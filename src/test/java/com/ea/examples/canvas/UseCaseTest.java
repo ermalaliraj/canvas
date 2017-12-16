@@ -10,10 +10,10 @@ import org.junit.Test;
 
 import com.ea.examples.canvas.cmd.Command;
 import com.ea.examples.canvas.cmd.CommandBucketFill;
-import com.ea.examples.canvas.cmd.CommandFactory;
-import com.ea.examples.canvas.cmd.CommandFactoryImpl;
 import com.ea.examples.canvas.cmd.CommandLine;
 import com.ea.examples.canvas.cmd.CommandRectangle;
+import com.ea.examples.canvas.cmd.factory.CommandFactory;
+import com.ea.examples.canvas.cmd.factory.CommandFactoryImpl;
 import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.CommandWrongParamsException;
 
