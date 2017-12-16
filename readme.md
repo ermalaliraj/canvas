@@ -56,8 +56,6 @@ enter command: B 10 3 o
 ----------------------
 ```
 
-<br/>
-
 # Solution
 
 ### Project Structure
@@ -84,49 +82,40 @@ If we try to read the UML the sequence of instruction is :
 
 
 The project is composed by the following packages:
-- __com.ea.examples.canvas__
-    Entry point of the application.
-- __com.ea.examples.canvas.cmd__
-	All commands supported by the application.
-- __com.ea.examples.canvas.core__
-	Core of the application, Canvas in this case.
-- __com.ea.examples.exception__
-	All checked exceptions thrown by the application.
-	
+- __com.ea.examples.canvas__  Entry point of the application.
+- __com.ea.examples.canvas.cmd__ All commands supported by the application.
+- __com.ea.examples.canvas.core__ Core of the application, Canvas in this case.
+- __com.ea.examples.exception__ All checked exceptions thrown by the application.
 
-#	Considerations
+---
 ###	Bucket filler "algorithm"
-The approach used for filling the area is as follows:
+The approach used for filling the area, in `CommandBucketFill`, is as follows:
 1. Call the method which fill only one pixel (if free)
 2. Call recursively same method for the 4 adjacent pixels: x+1, y; x, y+1; x-1, y; x, y-1.
-3. Method exit when finds borders or already a filled pixel.
+3. Method exits when finds borders or already a filled pixel.
 		
 __Complexity of the algorithm__
-The complexity of the algorithm is NumberOfFreePixels x 4.
-If we have an empty Canvas[20x5] the filler will make 400 calls, so 400 access to the matrix[][].
-Number of updates to the matrix[][] is equal to the number of pixels to be colored.
+The complexity of the algorithm is _NumberOfFreePixels_ x 4.
+If we have an empty _Canvas[20x5]_ the filler will make 400 calls, so 400 access to the _matrix[][]_.
+Number of updates to the _matrix[][]_ is equal to the number of pixels to be colored.
 	
-
 ###	Tests
 
-Choosed TDD approach for Canvas implementation. This means the TestCases had been created before or during the development phase
-and not in the end.
+Choosed `TDD approach` for Canvas implementation. This means the TestCases had been created before or during the development phase and not in the end.
  
 For each functionality is present a different test file:
-- CommandBucketFillTest.java -> Test cases for BucketFiller command.
-- CommandLineTest.java -> Test cases for drawing a line command.
-- CommandRectangleTest.java -> Test cases for drawing a rectangle command.
-- UseCaseTest.java -> Test cases covering bugs discovered in ta second moment.
+- `CommandBucketFillTest.java` Test cases for BucketFiller command.
+- `CommandLineTest.java` Test cases for drawing a line command.
+- `CommandRectangleTest.java` Test cases for drawing a rectangle command.
+- `UseCaseTest.java` Test cases covering bugs discovered in ta second moment.
 
-Unit tests are divided in three categories
-	-  Happy Paths - testHP_nomeTest wich are the tests that has to succeed. Usually we assert at the end of the method what we are expecting
-	- Case Limit  - testCL_nomeTest wich are the tests that test a Limit Case. Example, x, y are 0 ore same as width/height. 
-					Usually we assert what we are expecting or pay attention of eventual exceptions
-	- Exceptions  - testEX_nomeTest wich are the tests that test exception cases. In this cases we define the exception we are waiting to be thrown.
+Unit tests are divided in three categories:
+	-  `Happy Paths` _testHP_nomeTest_ wich are the tests that has to succeed. Usually we assert at the end of the method what we are expecting
+	- `Case Limit` _testCL_nomeTest_ wich are the tests that test a Limit Case. Example, x, y are 0 ore same as width/height. Usually we assert what we are expecting or pay attention of eventual exceptions
+	- `Exceptions` _testEX_nomeTest_ wich are the tests that test exception cases. In this cases we define the exception we are waiting to be thrown.
 
-In case of new enhancements or different implementation for the Canvas.java the unit tests will acts as Integration Tests. 
+In case of new enhancements or different implementation for the Canvas.java the unit tests will act as Integration Tests. 
 Before committing new changes to repository everything must be "green" :) 
-
 
 ###	A Working build
 
