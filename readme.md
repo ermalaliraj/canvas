@@ -69,7 +69,7 @@ If we try to model the implementation using the command pattern described by _Go
 - package `cmd` contains all _concrete commands_.
 - `Canvas.java` the _receiver_ which defines what to do on each command receiver. 
 
-Example of "create new canvas" implementation:
+Example of _"create new canvas"_ implementation:
 
 ![UML Model](./doc/canvas_uml.jpg)
 
@@ -84,8 +84,8 @@ If we try to read the UML the sequence of instruction is :
 The project is composed by the following packages:
 - `com.ea.examples.canvas`  Entry point of the application.
 - `com.ea.examples.canvas.cmd` All commands supported by the application.
-- `com.ea.examples.canvas.core` Core of the application, Canvas in this case.
-- `com.ea.examples.exception` All checked exceptions thrown by the application.
+- `com.ea.examples.canvas.core` Core of the application, `Canvas.java` in this case.
+- `com.ea.examples.exception` All _checked exceptions_ thrown by the application.
 
 ---
 ###	Bucket filler "algorithm"
@@ -94,9 +94,9 @@ The approach used for filling the area, in `CommandBucketFill`, is as follows:
 2. Call recursively same method for the 4 adjacent pixels: x+1, y; x, y+1; x-1, y; x, y-1.
 3. Method exits when finds borders or already a filled pixel.
 		
-__Complexity of the algorithm__
-The complexity of the algorithm is _NumberOfFreePixels_ x 4.
-If we have an empty _Canvas[20x5]_ the filler will make 400 calls, so 400 access to the _matrix[][]_.
+__Complexity of the algorithm__  <br/>
+The complexity of the algorithm is _NumberOfFreePixels_ x 4.<br/>
+If we have an empty _Canvas[20x5]_ the filler will make 400 calls, so 400 access to the _matrix[][]_.<br/>
 Number of updates to the _matrix[][]_ is equal to the number of pixels to be colored.
 	
 ###	Tests
