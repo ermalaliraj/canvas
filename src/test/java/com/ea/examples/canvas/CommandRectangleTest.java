@@ -31,7 +31,7 @@ public class CommandRectangleTest extends CommandTest {
 	public void testCL_X1EqualX2() throws CanvasException {
 		int x1 = 3, y1 = 1, x2 = 3, y2 = 4;
 		CommandRectangle cmd = new CommandRectangle(x1, y1, x2, y2, canvas);
-		canvas = canvas.insertRectangle(cmd);
+		canvas.insertRectangle(cmd);
 		
 		int expected = (y2 - y1) + 1;
 		assertExpected(canvas, expected);

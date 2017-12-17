@@ -25,9 +25,8 @@ public class Canvas {
 		resetMatrix();
 	}
 
-	public Canvas clearCanvas() {
+	public void clearCanvas() {
 		resetMatrix();
-		return this;
 	}
 	
 	private void resetMatrix() {
@@ -78,7 +77,7 @@ public class Canvas {
 	 * @param cmd Command containing x1, y1, x2, y2 for inserting new line.
 	 * @throws CanvasException
 	 */
-	public Canvas insertLine(CommandLine cmd) throws CanvasException {
+	public void insertLine(CommandLine cmd) throws CanvasException {
 
 		validateInputNewLine(cmd);
 
@@ -94,7 +93,6 @@ public class Canvas {
 				}
 			}
 		}
-		return this;
 	}
 
 	private void validateInputNewLine(CommandLine cmd) throws CanvasException {
@@ -127,7 +125,7 @@ public class Canvas {
 	 * 			  and lower right corner is (x2,y2)
 	 * @throws CanvasException
 	 */
-	public Canvas insertRectangle(CommandRectangle cmd) throws CanvasException {
+	public void insertRectangle(CommandRectangle cmd) throws CanvasException {
 
 		validateInputRectangle(cmd);
 
@@ -146,7 +144,6 @@ public class Canvas {
 				}
 			}
 		}
-		return this;
 	}
 
 	private void validateInputRectangle(CommandRectangle cmd) throws CanvasException {
@@ -168,11 +165,10 @@ public class Canvas {
 	 *            Command containing the "pixel" (x, y) where to start for "filling the bucket"
 	 * @throws CanvasException
 	 */
-	public Canvas fillBucket(CommandBucketFill cmd) throws CanvasException {
+	public void fillBucket(CommandBucketFill cmd) throws CanvasException {
 		validateInputFillBucket(cmd);
 
 		fillSinglePixelAndExpand(cmd.getX() - 1, cmd.getY() - 1, cmd.getColor());
-		return this;
 	}
 
 	/**
