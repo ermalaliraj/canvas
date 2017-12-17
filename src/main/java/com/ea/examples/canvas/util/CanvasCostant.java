@@ -1,4 +1,4 @@
-package com.ea.examples.canvas;
+package com.ea.examples.canvas.util;
 
 /**
  * Constants used by the application

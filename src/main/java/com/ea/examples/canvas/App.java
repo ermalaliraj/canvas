@@ -1,6 +1,6 @@
 package com.ea.examples.canvas;
 
-import static com.ea.examples.canvas.CanvasCostant.CMD_HELP;
+import static com.ea.examples.canvas.util.CanvasCostant.CMD_HELP;
 
 import java.io.Closeable;
 import java.util.Scanner;

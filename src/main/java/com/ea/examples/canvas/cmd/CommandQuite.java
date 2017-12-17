@@ -1,6 +1,6 @@
 package com.ea.examples.canvas.cmd;
 
-import static com.ea.examples.canvas.CanvasCostant.CMD_QUITE;
+import static com.ea.examples.canvas.util.CanvasCostant.CMD_QUITE;
 
 import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;

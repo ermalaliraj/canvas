@@ -10,6 +10,7 @@ import com.ea.examples.canvas.cmd.CommandLine;
 import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.CommandNotYetImplementedException;
 import com.ea.examples.canvas.exception.CommandWrongParamsException;
+import com.ea.examples.canvas.util.CanvasCostant;
 
 public class CommandLineTest extends CommandTest {
 

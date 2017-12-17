@@ -1,7 +1,7 @@
 package com.ea.examples.canvas.cmd;
 
-import static com.ea.examples.canvas.CanvasCostant.CMD_FILL;
-import static com.ea.examples.canvas.CanvasCostant.CMD_HELP;
+import static com.ea.examples.canvas.util.CanvasCostant.CMD_FILL;
+import static com.ea.examples.canvas.util.CanvasCostant.CMD_HELP;
 
 import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;

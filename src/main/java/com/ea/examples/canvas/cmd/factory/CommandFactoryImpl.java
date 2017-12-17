@@ -1,6 +1,6 @@
 package com.ea.examples.canvas.cmd.factory;
 
-import static com.ea.examples.canvas.CanvasCostant.*;
+import static com.ea.examples.canvas.util.CanvasCostant.*;
 
 import com.ea.examples.canvas.cmd.Command;
 import com.ea.examples.canvas.cmd.CommandBucketFill;

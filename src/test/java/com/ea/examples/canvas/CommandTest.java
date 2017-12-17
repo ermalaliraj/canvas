@@ -9,6 +9,7 @@ import com.ea.examples.canvas.cmd.factory.CommandFactory;
 import com.ea.examples.canvas.cmd.factory.CommandFactoryImpl;
 import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;
+import com.ea.examples.canvas.util.CanvasCostant;
 
 public abstract class CommandTest {
 	

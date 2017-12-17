@@ -146,7 +146,9 @@ mvn clean install
 
 A working build is present in the path `./dist`:
 - `canvas.jar` -> application packaged as a jar file.
-- `canvas.bat` -> easy and fast way to test the application. 
+- `canvas.bat` -> easy and fast way to test the application.
+
+Run: 
 ```
 cd /yourpath/canvas/dist
 canvas.bat

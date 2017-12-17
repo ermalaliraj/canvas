@@ -1,12 +1,12 @@
 package com.ea.examples.canvas.core;
 
-import com.ea.examples.canvas.CanvasCostant;
 import com.ea.examples.canvas.cmd.CommandBucketFill;
 import com.ea.examples.canvas.cmd.CommandLine;
 import com.ea.examples.canvas.cmd.CommandRectangle;
 import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.CommandNotYetImplementedException;
 import com.ea.examples.canvas.exception.CommandWrongParamsException;
+import com.ea.examples.canvas.util.CanvasCostant;
 
 public class Canvas {
 
