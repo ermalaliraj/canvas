@@ -14,10 +14,13 @@ public class Canvas {
 	private int width;
 	private int height;
 	private String matrix[][];
+	
+	public Canvas(int w, int h, String matrix[][]) {
+		this.width = w;
+		this.height = h; 
+		this.matrix = matrix;
+	}
 
-	/**
-	 * Create the Canvas (W)eight x (H)eight
-	 */
 	public Canvas(int w, int h) {
 		width = w;
 		height = h;
