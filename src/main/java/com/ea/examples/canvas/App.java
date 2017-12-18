@@ -37,7 +37,14 @@ public class App {
 
 	private void run() {
 		boolean isExit = false;
-		Canvas canvas = new Canvas(0, 0);
+		Canvas canvas = null;
+		try {
+			canvas = new Canvas(0, 0);
+		} catch (CanvasException e) {
+			logger.error("Exception initializing Canvas: " + e.getMessage(), e);
+			System.out.println("Exception initializing Canvas: " + e.getMessage());
+		}
+		
 		do {
 			try {
 				System.out.print("Insert command: ");

@@ -15,17 +15,26 @@ public class Canvas {
 	private int height;
 	private String matrix[][];
 	
-	public Canvas(int w, int h, String matrix[][]) {
+	public Canvas(int w, int h, String matrix[][]) throws CanvasException {
+		validateInputNewCannvas(w, h);
 		this.width = w;
-		this.height = h; 
+		this.height = h;
 		this.matrix = matrix;
 	}
 
-	public Canvas(int w, int h) {
+	public Canvas(int w, int h) throws CanvasException {
+		validateInputNewCannvas(w, h);
 		width = w;
 		height = h;
 		matrix = new String[height][width];
 		resetMatrix();
+	}
+	
+	private void validateInputNewCannvas(int width, int height) throws CanvasException {
+		if (width > 200 || height > 50) {
+			System.out.println("New Canvas - Wrong dimmension: (" + width + ", " + height + "). Max dimmension: 200 x 50 ");
+			throw new CommandWrongParamsException("Dimension for new canvas must be maximum: 200 x 50");
+		}
 	}
 
 	public void clearCanvas() {

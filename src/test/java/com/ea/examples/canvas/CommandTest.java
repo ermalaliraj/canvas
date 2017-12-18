@@ -2,6 +2,8 @@ package com.ea.examples.canvas;
 
 import static org.junit.Assert.assertEquals;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -13,6 +15,7 @@ import com.ea.examples.canvas.util.CanvasCostant;
 
 public abstract class CommandTest {
 	
+	protected static final transient Log logger = LogFactory.getLog(CommandRectangleTest.class);
 	protected Canvas canvas;
 	protected int width = 20;
 	protected int height = 4;
@@ -21,7 +24,11 @@ public abstract class CommandTest {
 	@Before
 	public void setUp() {
 		commandFactory = new CommandFactoryImpl();
-		canvas = new Canvas(width, height);
+		try {
+			canvas = new Canvas(width, height);
+		} catch (CanvasException e) {
+			logger.error("Exception initializing Canvas: " + e.getMessage(), e);
+		}
 	}
 
 	@After

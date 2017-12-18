@@ -37,7 +37,11 @@ public class CommandBucketFillTest extends CommandTest {
 	 */
 	@Before
 	public void setUp(){
-		canvas = new Canvas(width, height);
+		try {
+			canvas = new Canvas(width, height);
+		} catch (CanvasException e) {
+			logger.error("Exception initializing Canvas: " + e.getMessage(), e);
+		}
 		
 		try {
 			CommandRectangle cmd = new CommandRectangle(1, 1, 8, height, canvas);

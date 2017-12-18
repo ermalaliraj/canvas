@@ -12,8 +12,7 @@ import com.ea.examples.canvas.cmd.Command;
 import com.ea.examples.canvas.cmd.CommandBucketFill;
 import com.ea.examples.canvas.cmd.CommandLine;
 import com.ea.examples.canvas.cmd.CommandRectangle;
-import com.ea.examples.canvas.cmd.factory.CommandFactory;
-import com.ea.examples.canvas.cmd.factory.CommandFactoryImpl;
+import com.ea.examples.canvas.core.Canvas;
 import com.ea.examples.canvas.exception.CanvasException;
 import com.ea.examples.canvas.exception.CommandWrongParamsException;
 
@@ -67,24 +66,22 @@ public class UseCaseTest extends CommandTest {
 		assertExpected(canvas,stars);
 	}
 	
-	@Test
-	public void testHP_new() throws CanvasException {
-//		CommandLine l = new CommandLine(1, 1, 18, 1, canvas);
-//		int stars = (18 - 1) + 1;
-//		canvas = canvas.insertLine(l);
-//		canvas.printCanvas();
-//		assertExpected(canvas, stars);
-//
-//		// error
-//		l = new CommandLine(10, 10, 10, 3, canvas);
-//		canvas = canvas.insertLine(l);
-//		canvas.printCanvas();
-//		
-//		
-//		l = new CommandLine(3, 2, 3, 3, canvas);
-//		stars = stars + 2;
-//		canvas.insertLine(l);
-//		canvas.printCanvas();
-//		assertExpected(canvas,stars);
+	@Test(expected = CommandWrongParamsException.class)
+	public void testEX_newCanvasExceedWidthDimmension() throws CanvasException {
+		canvas = new Canvas(201, 10);
 	}
+	@Test(expected = CommandWrongParamsException.class)
+	public void testEX_newCanvasExceedHeightDimmension() throws CanvasException {
+		canvas = new Canvas(10, 51);
+	}
+	@Test(expected = CommandWrongParamsException.class)
+	public void testEX_newCanvasExceedWidthDimmension_secondCostructor() throws CanvasException {
+		canvas = new Canvas(201, 10, new String[201][10]);
+	}
+	@Test(expected = CommandWrongParamsException.class)
+	public void testEX_newCanvasExceedHeightDimmension_secondCostructor() throws CanvasException {
+		canvas = new Canvas(10, 51);
+		canvas = new Canvas(10, 51, new String[10][51]);
+	}
+	
 }
