@@ -55,7 +55,7 @@ public class App {
 				canvas.printCanvas();
 			} catch (QuitGameException e) {
 				isExit = true;
-				System.out.println("Thank you for tried Canvas App! Bye...");
+				System.out.println("Thank you for trying out Canvas App! Bye...");
 			} catch (CanvasException e) {
 				logger.error("CanvasException: " + e.getMessage(), e);
 				System.out.println("Canvas Exception: " + e.getMessage());
